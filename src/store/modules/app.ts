@@ -1,5 +1,5 @@
 import { menuItem, routerItem } from '@/interface';
-import utils from '@/utils';
+import { routeToArray } from '@/utils';
 import router from '@/router';
 // 循环匹配当前路由数据
 function findMenu(
@@ -96,7 +96,7 @@ const app = {
       } = context.state;
       let resultData = { tabList, tabActiveKey, key: [] };
       let haveMenu = false;
-      const ArrPath = utils.routeToArray(url);
+      const ArrPath = routeToArray(url);
       tabList.map((item: any) => {
         if (ArrPath.routeArr.indexOf(item.path.replace(/\/:\w+/g, '')) > -1) {
           resultData.tabActiveKey = item.name;

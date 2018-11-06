@@ -1,7 +1,7 @@
 import { Component, Emit, Vue, Prop, Watch } from 'vue-property-decorator';
 import { Menu, Icon } from 'ant-design-vue';
 import { routerItem } from '@/interface';
-import utils from '@/utils/index';
+import { routeToArray } from '@/utils/index';
 import './MenuList.less';
 
 @Component({
@@ -22,7 +22,7 @@ export default class MenuList extends Vue {
 
   @Watch('$route', { immediate: true, deep: true })
   routeChange(to: any, from: any) {
-    this.keys = utils.routeToArray(to.path).routeArr;
+    this.keys = routeToArray(to.path).routeArr;
     const open = this.keys.concat();
     open.pop();
     this.openKeys = open || [];

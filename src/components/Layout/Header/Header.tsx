@@ -2,7 +2,7 @@ import { Component, Prop, Emit, Vue, Watch } from 'vue-property-decorator';
 import { Badge, Dropdown, Breadcrumb, Popover, Icon, Menu } from 'ant-design-vue';
 import Cookies from 'js-cookie';
 import { menuItem, routerItem } from '@/interface';
-import utils from '@/utils';
+import { routeToArray } from '@/utils';
 import MenuList from '@/components/Layout/Sidebar/MenuList';
 import './Header.less';
 
@@ -34,14 +34,14 @@ export default class Header extends Vue {
 
   @Watch('$route', { immediate: true, deep: true })
   routeChange(to: any, from: any) {
-    const toDepth = utils.routeToArray(to.path);
+    const toDepth = routeToArray(to.path);
     this.onIndex = 0;
     this.breadList = [];
     this.routerBread(this.menuData, toDepth.routeArr);
   }
   @Watch('menuData')
   initRouteBread() {
-    const toDepth = utils.routeToArray(this.$route.path);
+    const toDepth = routeToArray(this.$route.path);
     this.routerBread(this.menuData, toDepth.routeArr);
   }
 

@@ -137,6 +137,23 @@ export const asyncRouterMap: routerItem[] = [
       },
     ],
   },
+  {
+    path: '/map',
+    icon: 'environment',
+    name: 'Map',
+    component: getComponent('map/index'),
+    permission: true,
+    meta: { key: 'Map' },
+    children: [
+      {
+        path: 'trajectory',
+        name: 'Trajectory',
+        component: getComponent('map/trajectory/index'),
+        permission: true,
+        meta: { key: 'Trajectory' },
+      },
+    ],
+  },
 ];
 
 Vue.use(Router);

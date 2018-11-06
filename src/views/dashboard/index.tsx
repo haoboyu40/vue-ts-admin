@@ -1,7 +1,7 @@
 import { Component, Vue, Emit } from 'vue-property-decorator';
 import { Button, DatePicker, Modal, Row, Col, Card, Icon, Radio } from 'ant-design-vue';
 import Chart from 'chart.js';
-import utils from '@/utils/index';
+import { numFormat } from '@/utils/index';
 
 import './index.less';
 
@@ -209,7 +209,7 @@ export default class Dashboard extends Vue {
                   <a-card loading={this.loading} class="dash-card">
                     <h3>{item.name}</h3>
                     <a-icon class="icon" type={this.iconList[index]}></a-icon>
-                    <p class="number">{utils.numFormat(item.value)}</p>
+                    <p class="number">{numFormat(item.value)}</p>
                     <div class="footer">
                       <span class={`s-number ${index % 2 ? 'green' : 'red'}`}>
                         <a-icon type={index % 2 ? 'arrow-up' : 'arrow-down'}></a-icon>
@@ -248,11 +248,11 @@ export default class Dashboard extends Vue {
               <div class="week-data">
                 <div class="item">
                   <h4 class="item-title">Current Week</h4>
-                  <p class="number">${this.pageData && utils.numFormat(this.pageData.CurrentWeek)}</p>
+                  <p class="number">${this.pageData && numFormat(this.pageData.CurrentWeek)}</p>
                 </div>
                 <div class="item">
                   <h4 class="item-title">Previous Week</h4>
-                  <p class="number number2">${this.pageData && utils.numFormat(this.pageData.PreviousWeek)}</p>
+                  <p class="number number2">${this.pageData && numFormat(this.pageData.PreviousWeek)}</p>
                 </div>
               </div>
               <div class="float-text">

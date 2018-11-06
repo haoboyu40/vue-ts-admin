@@ -65,6 +65,11 @@ export default class Api {
       fetchType: 'json',
       method: 'post',
     },
+    gpsToAddress: {
+      url: 'http://api.map.baidu.com/geocoder/v2/',
+      method: 'get',
+      fetchType: 'jsonp',
+    },
   }
   // 对外暴露方法
   api: Apis = {}
@@ -77,13 +82,26 @@ export default class Api {
       timeout: 20000, // 请求超时时间
     });
     for (const i in this.apiList) {
-      this.api[i] = (data: any) => this.request({
-        method: this.apiList[i].method,
-        data,
-        fetchType: this.apiList[i].fetchType,
-        url: this.apiList[i].url,
-        headers: this.apiList[i].headers,
-      });
+      this.api[i] = (data: any) => {
+        const url = this.apiList[i].url;
+        if (i === 'gpsToAddress') {
+          data = {
+            callback: 'renderReverse',
+            coordtype: data.coordinateSystem,
+            location: `${data.lat},${data.lng}`,
+            output: 'json',
+            pois: 1,
+            ak: '3oWu5SgExpeyXtRXbuDdRO08CoVMTloM',
+          };
+        }
+        return this.request({
+          method: this.apiList[i].method,
+          data,
+          fetchType: this.apiList[i].fetchType,
+          url,
+          headers: this.apiList[i].headers,
+        });
+      };
     }
   }
 

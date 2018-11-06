@@ -1,4 +1,4 @@
-function param2Obj(url: string): { token?: string } {
+export function param2Obj(url: string): { token?: string } {
   const search = url.split('?')[1];
   if (!search) {
     return {};
@@ -6,7 +6,7 @@ function param2Obj(url: string): { token?: string } {
   return JSON.parse(`{"${decodeURIComponent(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"')}"}`);
 }
 
-function routeToArray(route: string): { routeArr: string[], params: string } {
+export function routeToArray(route: string): { routeArr: string[], params: string } {
   if (!route) {
     return {
       routeArr: [],
@@ -30,7 +30,7 @@ function routeToArray(route: string): { routeArr: string[], params: string } {
   };
 }
 
-function levelcodeToArray(levelcode: string) {
+export function levelcodeToArray(levelcode: string) {
   if (!levelcode) {
     return [];
   }
@@ -43,7 +43,7 @@ function levelcodeToArray(levelcode: string) {
   return ret;
 }
 
-function numFormat(num: number) {
+export function numFormat(num: number) {
   return num.toString().replace(/(\d{1,3})(?=(\d{3})+$)/g, '$1,');
 }
 
@@ -55,9 +55,10 @@ export const loadApexCharts = () => new Promise(((resolve, reject) => {
   script.type = 'text/javascript';
   script.src = '/apexcharts.js';
   script.onerror = reject;
-  document
-    .head
-    .appendChild(script);
+  const { head } = document;
+  if (head) {
+    head.appendChild(script);
+  }
   script.onload = function onload() {
     if (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete') {
       resolve(window.ApexCharts);
@@ -68,9 +69,64 @@ export const loadApexCharts = () => new Promise(((resolve, reject) => {
   script.onreadystatechange = script.onload;
 }));
 
-export default {
-  param2Obj,
-  levelcodeToArray,
-  routeToArray,
-  numFormat,
-};
+export const loadBmap = () => new Promise(((resolve, reject) => {
+  if (!window.BMap) {
+    const script: any = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '//api.map.baidu.com/getscript?v=2.0&ak=3oWu5SgExpeyXtRXbuDdRO08CoVMTloM&ser' +
+      'vices=&t=20180629105706';
+    script.onerror = reject;
+    const { head } = document;
+    if (head) {
+      head.appendChild(script);
+    }
+    script.onload = function onload() {
+      if (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete') {
+        resolve(window.BMap);
+      }
+      script.onload = null;
+      script.onreadystatechange = null;
+    };
+    script.onreadystatechange = script.onload;
+  } else {
+    resolve(window.BMap);
+  }
+}));
+
+export const loadCanvasLayer = () => new Promise(((resolve, reject) => {
+  const script: any = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = '/canvaslayer.js';
+  script.onerror = reject;
+  const { head } = document;
+  if (head) {
+    head.appendChild(script);
+  }
+  script.onload = function onload() {
+    if (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete') {
+      resolve(window.CanvasLayer);
+    }
+    script.onload = null;
+    script.onreadystatechange = null;
+  };
+  script.onreadystatechange = script.onload;
+}));
+
+export const loadMapInfoBox = () => new Promise(((resolve, reject) => {
+  const script: any = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = '//api.map.baidu.com/library/InfoBox/1.2/src/InfoBox_min.js';
+  script.onerror = reject;
+  const { head } = document;
+  if (head) {
+    head.appendChild(script);
+  }
+  script.onload = function onload() {
+    if (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete') {
+      resolve();
+    }
+    script.onload = null;
+    script.onreadystatechange = null;
+  };
+  script.onreadystatechange = script.onload;
+}));

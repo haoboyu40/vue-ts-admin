@@ -1,4 +1,5 @@
 {
+  "typeRoots": [ "node_modules/@types", "./typings.d.ts" ],
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
