@@ -35,7 +35,7 @@ yarn install
 ```
 
 ### 完成进度：
-
+![trajectory](/images/trajectory.png)
 ![dashboard](/images/dashboard.png)
 ![baseInfo](/images/baseInfo.png)
 ![lineChart](/images/line-chart.png)
