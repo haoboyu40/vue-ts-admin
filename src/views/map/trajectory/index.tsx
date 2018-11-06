@@ -41,18 +41,6 @@ export default class Trajectory extends Vue {
     loadBmap().then((BMap: any) => {
       this.BMap = BMap;
       this.SMap = new BMap.Map('map', { enableMapClick: false });
-      this.SMap.setMapStyle({
-        styleJson: [
-          {
-            featureType: 'all',
-            elementType: 'all',
-            stylers: {
-              lightness: 16,
-              saturation: -53,
-            },
-          },
-        ],
-      });
       this.SMap.centerAndZoom(new BMap.Point(this.mapCenter.lng, this.mapCenter.lat), 15);
       this.geolocationControl = new BMap.GeolocationControl();
       this.geolocationControl.addEventListener('locationSuccess', () => {
