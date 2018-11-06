@@ -74,7 +74,7 @@ export const loadBmap = () => new Promise(((resolve, reject) => {
     const script: any = document.createElement('script');
     script.type = 'text/javascript';
     script.src = '//api.map.baidu.com/getscript?v=2.0&ak=3oWu5SgExpeyXtRXbuDdRO08CoVMTloM&ser' +
-      'vices=&t=20180629105706';
+      'vices=&t=20180629105706&s=1';
     script.onerror = reject;
     const { head } = document;
     if (head) {
