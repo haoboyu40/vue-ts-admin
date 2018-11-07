@@ -66,7 +66,7 @@ export default class Api {
       method: 'post',
     },
     gpsToAddress: {
-      url: 'http://api.map.baidu.com/geocoder/v2/',
+      url: 'https://api.map.baidu.com/geocoder/v2/',
       method: 'get',
       fetchType: 'jsonp',
     },
