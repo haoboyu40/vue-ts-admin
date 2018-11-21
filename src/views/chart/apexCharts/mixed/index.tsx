@@ -20,10 +20,12 @@ import './index.less';
   })
 export default class Mixed extends Vue {
   itemLayout = {
-    span: 12,
-    lg: 12,
-    md: 12,
-    sm: 24,
+    span: {
+      xxl: 12,
+      xl: 12,
+      md: 12,
+      sm: 24,
+    },
   }
 
   lineColumnMixedChart: any = null;

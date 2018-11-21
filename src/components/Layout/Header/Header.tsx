@@ -99,11 +99,14 @@ export default class Header extends Vue {
             <i class="menu-btn iconfont-listMenu"></i>
           </a-popover> : <i class={`menu-btn iconfont-${opened ? 'indent' : 'outdent'}`} on-click={this.switchSidebar}></i>
           }
-          <a-breadcrumb class="header-bread" separator="/">
-            {
-              this.breadList.map((item: breadItem) => <a-breadcrumb-item to={item.url ? { path: '/' } : null}>{item.text}</a-breadcrumb-item>)
-            }
-          </a-breadcrumb>
+          {
+            isMobile ? null :
+            <a-breadcrumb class="header-bread" separator="/">
+              {
+                this.breadList.map((item: breadItem) => <a-breadcrumb-item to={item.url ? { path: '/' } : null}>{item.text}</a-breadcrumb-item>)
+              }
+            </a-breadcrumb>
+          }
         </div>
         <ul class="header-menu">
           <li>
