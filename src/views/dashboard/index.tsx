@@ -188,6 +188,7 @@ export default class Dashboard extends Vue {
     lg: 12,
     md: 12,
     sm: 24,
+    xs: 24,
   }
 
   tabChange() {
@@ -201,7 +202,7 @@ export default class Dashboard extends Vue {
     return (
       <div class="container">
         <a-row gutter={{ xs: 8, md: 12, xl: 20 }} class="dash-col">
-          <a-col span={10}>
+          <a-col span={10} xxl={10} xl={10} lg={12} md={24} sm={24} xs={24}>
             <a-row gutter={{ xs: 8, md: 12, xl: 20 }}>
               {
                 this.pageData && this.pageData.dataList.map((item: any, index: number) =>
@@ -230,7 +231,7 @@ export default class Dashboard extends Vue {
               }
             </a-row>
           </a-col>
-          <a-col span={14}>
+          <a-col span={14} xxl={14} xl={14} lg={12} md={24} sm={24} xs={24}>
             <a-card loading={this.loading} class="dash-box dash-bar-chart">
               <a-icon class="opreat" type="ellipsis"></a-icon>
               <h2 class="title">PROJECTIONS VS ACTUALS</h2>
@@ -241,7 +242,7 @@ export default class Dashboard extends Vue {
           </a-col>
         </a-row>
         <a-row gutter={{ xs: 8, md: 12, xl: 20 }}>
-          <a-col span={16}>
+          <a-col span={16} xxl={16} xl={16} lg={24} md={24} sm={24} xs={24}>
             <a-card loading={this.loading} class="dash-box revenue-chart">
               <h2 class="title">REVENUE</h2>
               <a-icon class="opreat" type="ellipsis"></a-icon>
@@ -267,7 +268,7 @@ export default class Dashboard extends Vue {
               </div>
             </a-card>
           </a-col>
-          <a-col span={8}>
+          <a-col span={8} xxl={8} xl={8} lg={24} md={24} sm={24} xs={24}>
             <a-card loading={this.loading} class="dash-box total-wrap">
               <h2 class="title">Total Sales</h2>
               <a-icon class="opreat" type="ellipsis"></a-icon>
@@ -304,17 +305,6 @@ export default class Dashboard extends Vue {
             </a-card>
           </a-col>
         </a-row>
-        {/* <a-row gutter={{ xs: 8, md: 12, xl: 20 }}>
-          <a-col span={8}>
-
-          </a-col>
-          <a-col span={16}>
-          <m-table
-            tableList={this.tableList}
-           >
-           </m-table>
-          </a-col>
-        </a-row> */}
       </div>
     );
   }

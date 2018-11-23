@@ -23,10 +23,11 @@ import './index.less';
   })
 export default class Column extends Vue {
   itemLayout = {
-    span: 12,
-    lg: 12,
+    xxl: 12,
+    xl: 12,
     md: 12,
     sm: 24,
+    xs: 24,
   }
 
   basicColumnChart: any = null;

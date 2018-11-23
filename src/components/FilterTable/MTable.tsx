@@ -58,6 +58,8 @@ export default class MTable extends Vue {
   @Prop({ default: 10 }) private defaultPageSize!: number;
 
   @Prop() private highlightCurrentRow!: boolean;
+
+  @Prop({ default: null }) private scroll!: {x: number, y: number};
   // data
   tableData: any = [];
   pageParams: {
@@ -148,6 +150,7 @@ export default class MTable extends Vue {
           loading={this.loading}
           rowKey={this.rowKey}
           dataSource={this.tableData}
+          scroll={this.scroll}
           pagination={{
             current: this.pageParams.pageNum,
             defaultPageSize: this.defaultPageSize,

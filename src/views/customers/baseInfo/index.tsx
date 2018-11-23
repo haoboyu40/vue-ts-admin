@@ -161,6 +161,7 @@ export default class BaseInfo extends Vue {
           tableList={this.tableList}
           filterList={this.filterList}
           filterGrade={[]}
+          scroll={{ x: 900 }}
           url={'/customers/baseInfoList'}
           filterParams={this.filterParams}
           outParams={this.outParams}

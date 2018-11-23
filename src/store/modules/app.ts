@@ -111,7 +111,6 @@ const app = {
           context.dispatch('addKeep', resultData.key);
         }
       }
-      context.commit('KEEP_CHANGE', keepList);
       context.commit('TAB_CHANGE', resultData);
       resolve(true);
     }),

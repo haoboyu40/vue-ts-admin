@@ -32,6 +32,7 @@
       :table-params="tableParams"
       :default-page-size="defaultPageSize"
       :highlight-current-row="highlightCurrentRow"
+      :scroll="scroll"
       @tableClick="tableClick"
       @selectChange="selectChange"
       @currentChange="currentChange"
@@ -91,6 +92,8 @@ export default class FilterTable extends Vue {
   @Prop({ default: 'json' }) private fetchType!: string;
 
   @Prop({ default: false }) private highlightCurrentRow!: boolean;
+
+  @Prop({ default: null }) private scroll!: {x: number, y: number};
   // 初始化请求参数
   tableParams: any = Object.assign(this.filterParams, this.outParams);
 
