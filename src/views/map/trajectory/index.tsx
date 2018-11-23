@@ -371,27 +371,27 @@ export default class Trajectory extends Vue {
     speed = speed > 100 ? 100 : speed;
     switch (Math.floor(speed / 25)) {
       case 0:
-        red = 187;
-        green = 0;
-        blue = 0;
-        break;
-      case 1:
-        speed -= 25;
         red = 187 + Math.ceil(((241 - 187) / 25) * speed);
         green = 0 + Math.ceil(((48 - 0) / 25) * speed);
         blue = 0 + Math.ceil(((48 - 0) / 25) * speed);
         break;
-      case 2:
-        speed -= 50;
+      case 1:
+        speed -= 25;
         red = 241 + Math.ceil(((255 - 241) / 25) * speed);
         green = 48 + Math.ceil(((200 - 48) / 25) * speed);
         blue = 48 + Math.ceil(((0 - 48) / 25) * speed);
+        break;
+      case 2:
+        speed -= 50;
+        red = 255 + Math.ceil(((22 - 255) / 25) * speed);
+        green = 200 + Math.ceil(((191 - 200) / 25) * speed);
+        blue = 0 + Math.ceil(((43 - 0) / 25) * speed);
         break;
       case 3:
         speed -= 75;
         red = 255 + Math.ceil(((22 - 255) / 25) * speed);
         green = 200 + Math.ceil(((191 - 200) / 25) * speed);
-        blue = 0 + Math.ceil(((43 - 0) / 25) * speed);
+        blue = 48 + Math.ceil(((43 - 0) / 25) * speed);
         break;
       case 4:
         red = 22;
