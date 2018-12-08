@@ -17,6 +17,7 @@ import {
 import './index.less';
 
 @Component({
+  name: 'Area',
   components: {
   'a-row': Row,
   'a-col': Col,

@@ -15,6 +15,7 @@ import {
 import './index.less';
 
 @Component({
+  name: 'Column',
   components: {
   'a-row': Row,
   'a-col': Col,

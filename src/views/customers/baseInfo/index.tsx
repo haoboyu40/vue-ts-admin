@@ -10,6 +10,7 @@ import './index.less';
 
 
 @Component({
+  name: 'BaseInfo',
   components: {
   'a-tag': Tag,
   'info-modal': InfoModal,

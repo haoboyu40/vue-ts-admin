@@ -12,6 +12,7 @@ import {
 import './index.less';
 
 @Component({
+  name: 'Mixed',
   components: {
   'a-row': Row,
   'a-col': Col,

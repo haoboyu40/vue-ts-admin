@@ -10,6 +10,7 @@ import './index.less';
 function getTimeDay(day: number) { }
 
 @Component({
+  name: 'Trajectory',
   components: {
   'a-button': Button,
   'a-slider': Slider,

@@ -4,6 +4,7 @@ import { Form, Input, Select, Radio, Card, Dropdown, Menu, Icon, DatePicker, But
 import './index.less';
 
 @Component({
+  name: 'baseForm',
   components: {
   'a-form': Form,
   'a-form-item': Form.Item,

@@ -18,6 +18,7 @@ import {
 import './index.less';
 
 @Component({
+  name: 'Line',
   components: {
   'a-row': Row,
   'a-col': Col,

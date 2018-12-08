@@ -6,6 +6,7 @@ import { numFormat } from '@/utils/index';
 import './index.less';
 
 @Component({
+  name: 'Dashboard',
   components: {
   'a-button': Button,
   'a-date-picker': DatePicker,
